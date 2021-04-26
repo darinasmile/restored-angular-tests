@@ -11,6 +11,6 @@ export class TestLayoutService {
   ) { }
 
   getVasya() {
-    this.teammatesService.getTestUser();
+    return this.teammatesService.getTestUser();
   }
 }
