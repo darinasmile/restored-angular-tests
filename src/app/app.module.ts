@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './system/home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './system/home/home.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { HomeModule } from './system/home/home.module';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    HomeModule
+    HomeModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
