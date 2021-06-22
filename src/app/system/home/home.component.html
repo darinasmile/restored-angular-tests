@@ -2,10 +2,14 @@
   <h2 class="title">
     Review form
   </h2>
-  <form >
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </form>
+  <mat-form-field id="pm-name">
+    <mat-label>Your name</mat-label>
+    <input matInput placeholder="PM Name" [(ngModel)]="name">
+  </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>Teammate</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let user of users" [value]="user.id"> {{user.name}} </mat-option>
+      </mat-select>
+    </mat-form-field> -->
 </div>

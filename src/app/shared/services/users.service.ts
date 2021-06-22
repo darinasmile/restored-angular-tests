@@ -1,19 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
-  private usersUrl = 'api/users';
+export class UserService {
+  name: string = null;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor() { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl)
+  savePmName(name: string) {
+    this.name = name;
+  }
+
+  takePmName(): string | null {
+    return this.name;
+  }
+
+  logout() {
+    this.name = null;
   }
 }

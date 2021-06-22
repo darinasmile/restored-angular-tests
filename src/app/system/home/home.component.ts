@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/models/models';
-import { UsersService } from 'src/app/shared/services/users.service';
+import { FormControl } from '@angular/forms';
+import { UserService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +8,14 @@ import { UsersService } from 'src/app/shared/services/users.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  users: User[]
+  name = '';
 
   constructor(
-    private userService: UsersService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUsers()
-      .subscribe((users: User[]) => {
-        this.users = users;
-      });
+    this.name = this.userService.takePmName() || '';
   }
 
 }
